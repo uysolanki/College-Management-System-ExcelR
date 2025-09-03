@@ -1,7 +1,13 @@
 package com.excelr.CollegeManagementSystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.excelr.CollegeManagementSystem.model.Student;
@@ -31,6 +37,46 @@ public class HelloController {
 		Student s1=new Student(18,"Virat",78.5);
 		studentService.saveStudent(s1);
 		return "Record Saved Successfully";
+	}
+	
+	@PostMapping("/saveStudentUsingRequestParam")
+	public String saveStudentUsingRequestParam(
+			@RequestParam("a") int rno,
+			@RequestParam("b") String sname,
+			@RequestParam("c") double per			
+			)
+	{
+		Student s1=new Student(rno,sname,per);
+		studentService.saveStudent(s1);
+		return "Record Saved Successfully";
+	}
+	
+	@PostMapping("/saveStudentByPathVariable/{a}/{b}/{c}")
+	public String saveStudentByPathVariable(
+			@PathVariable("a") int rno,
+			@PathVariable("b") String sname,
+			@PathVariable("c") double per			
+			)
+	{
+		Student s1=new Student(rno,sname,per);
+		studentService.saveStudent(s1);
+		return "Record Saved Successfully";
+	}
+	
+	@PostMapping("/saveStudentByRequestBody")
+	public String saveStudentByRequestBody(
+			@RequestBody Student s1		
+			)
+	{
+		studentService.saveStudent(s1);
+		return "Record Saved Successfully";
+	}
+	
+	@GetMapping("/getAllStudents")
+	public List<Student> getAllStudents()
+	{
+		return studentService.getAllStudents();
+	
 	}
 
 }
