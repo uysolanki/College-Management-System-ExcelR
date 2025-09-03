@@ -21,6 +21,26 @@ public class StudentService {
 
 	public List<Student> getAllStudents() {
 		return studentRepository.findAll();
+	}
+
+	public Student getStudentByRno(int rno) {
+		return studentRepository.findById(rno).get();
+	}
+
+	public void updateStudent(int rno, Student newValues) {
+		Student studFromDb=getStudentByRno(rno);
+		
+		//studFromDb.setRno(newValues.getRno());
+		studFromDb.setSname(newValues.getSname());
+		studFromDb.setPer(newValues.getPer());
+		
+		studentRepository.save(studFromDb);
+		
+	}
+
+	public void deleteStudent(int rno) {
+		studentRepository.deleteById(rno);
+		
 	}  
 
 }
