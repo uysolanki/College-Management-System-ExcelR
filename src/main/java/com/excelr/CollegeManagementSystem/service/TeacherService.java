@@ -31,4 +31,20 @@ public class TeacherService {
 		return teacherRepository.findById(tno).get();
 	}
 
+	public void updateTeacher(int tno, Teacher newValues) {
+		Teacher teacherFromDB=getTeacher(tno);
+		teacherFromDB.setAge(newValues.getAge());
+		teacherFromDB.setSal(newValues.getSal());
+		teacherFromDB.setTname(newValues.getTname());
+		
+		teacherRepository.save(teacherFromDB);
+		
+		
+	}
+
+	public void deleteTeacher(int tno) {
+		teacherRepository.deleteById(tno);
+		
+	}
+
 }
