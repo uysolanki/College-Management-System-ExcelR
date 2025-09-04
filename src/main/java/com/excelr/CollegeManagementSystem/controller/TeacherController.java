@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.excelr.CollegeManagementSystem.model.Teacher;
 import com.excelr.CollegeManagementSystem.service.TeacherService;
 
-@RestController
+@RestController //return raw json data , which we will get on POSTMAN
 public class TeacherController {
 
 	@Autowired
@@ -67,5 +67,4 @@ public class TeacherController {
 		teacherService.deleteTeacher(tno);
 		return "Record Deleted Successfully";
 	}
-	
 }
