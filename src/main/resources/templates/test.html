@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Welcome to FSD</h1>
+<p> Teacher Number <span th:text="${teacher1.tno}" ></span> </p>
+<p> Teacher Name <span th:text="${teacher1.tname}" ></span> </p>
+<p> Teacher Salary <span th:text="${teacher1.sal}" ></span> </p>
+<p> Teacher Age <span th:text="${teacher1.age}" ></span> </p>
+
+
+<p> Player name <span th:text="${player}" ></span> </p>
+
 <ol>
 	<li>Audi</li>
 	<li>BMW</li>

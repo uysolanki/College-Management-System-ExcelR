@@ -3,17 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-<form action="" method="">
-	Enter Teacher Number <input type="text" name="t1"> <br>
-	Enter Teacher Name <input type="text" name="t2"> <br>
-	Enter Teacher Age <input type="text" name="t3"> <br>
-	Enter Teacher Salary <input type="text" name="t4"> <br>
-	
-	 <input type="submit" value="Save Teacher" name="s1"> <br>
+ <form th:action="@{/readTeacherDetailsFromUI}" th:object="${teacher}" method="get">
+                <div class="mb-3">
+                    <label for="teacherNo" class="form-label">Teacher Number</label>
+                    <input type="text" th:field="*{tno}" id="teacherNo" class="form-control" placeholder="Enter teacher number">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="teacherName" class="form-label">Teacher Name</label>
+                    <input type="text" th:field="*{tname}" id="teacherName" class="form-control" placeholder="Enter teacher name">
+                </div>
 
+                <div class="mb-3">
+                    <label for="age" class="form-label">Teacher Age</label>
+                    <input type="number" th:field="*{age}" id="age" class="form-control" placeholder="Enter teacher age">
+                </div>
 
-</form>
+                <div class="mb-3">
+                    <label for="salary" class="form-label">Teacher Salary</label>
+                    <input type="number" th:field="*{sal}" id="salary" class="form-control" placeholder="Enter teacher sal">
+                </div>
+
+                <button type="submit" class="btn btn-success">Add Teacher</button>
+            </form>
 </body>
 </html>
