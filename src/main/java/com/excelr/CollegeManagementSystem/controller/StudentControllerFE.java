@@ -46,4 +46,11 @@ public class StudentControllerFE {
 		return "allstudents";
 	}
 	
+	@RequestMapping("/deleteStudentFE/{rno}")
+	public String deleteStudentFE(@PathVariable int rno)
+	{
+		studentService.deleteStudent(rno);
+		return "redirect:/showAllStudents";
+	}
+	
 }
