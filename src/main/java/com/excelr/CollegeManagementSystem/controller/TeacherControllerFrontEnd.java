@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.excelr.CollegeManagementSystem.model.Teacher;
@@ -73,6 +74,21 @@ public class TeacherControllerFrontEnd {
 	public String deleteTeacher(@PathVariable("tno") int tno)
 	{
 		teacherService.deleteTeacher(tno);
+		return "redirect:/showAllTeachers";
+	}
+	
+	@RequestMapping("/updateTeacherForm/{tno}")
+	public String updateTeacher(@PathVariable("tno") int tno, Model model)
+	{
+		Teacher teacher=teacherService.getTeacher(tno);
+		model.addAttribute("teacher",teacher);
+		return "update-teacher-form";
+	}
+	
+	@PostMapping("/updateTeacher/{tno}")
+	public String updateTeacher(@PathVariable("tno") int tno, @ModelAttribute Teacher newValues)
+	{
+		teacherService.updateTeacher(tno,newValues);
 		return "redirect:/showAllTeachers";
 	}
 
