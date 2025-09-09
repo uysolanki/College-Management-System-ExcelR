@@ -61,7 +61,7 @@ public class TeacherControllerFrontEnd {
 	}
 	
 	
-	@GetMapping("/showAllTeachers")
+	@RequestMapping("/showAllTeachers")
 	public String showAllTeachers(Model model)
 	{
 		List<Teacher> teachers=teacherService.getAllTeachers();
