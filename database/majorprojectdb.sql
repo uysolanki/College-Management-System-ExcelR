@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 09, 2025 at 03:14 PM
+-- Generation Time: Sep 10, 2025 at 02:16 PM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -88,8 +88,7 @@ INSERT INTO `teacher` (`tno`, `age`, `sal`, `tname`) VALUES
 (2, 32, 900, 'Ben'),
 (5, 25, 600, 'Elcid'),
 (6, 49, 1800, 'Frank'),
-(13, 37, 800, 'Virat'),
-(98, 35, 1000, 'Surya');
+(13, 37, 1900, 'Virat');
 
 -- --------------------------------------------------------
 
@@ -101,6 +100,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
+  `account_enabled_status` int(11) NOT NULL,
+  `account_expiry_date` date DEFAULT NULL,
+  `account_locked_status` int(11) NOT NULL,
+  `credentials_expiry_date` date DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -108,9 +111,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `password`, `user_name`) VALUES
-(1, '$2a$12$ELixTw75rQdVVA/C0BFyoeH.bwb420lz0ejxBMy8Rr4GCN4qpOEgy', 'alice'),
-(2, '$2a$12$OrsWxWiRw5joC/qsKcymNOyUQ9i1fVu8Mzz0WEuS.0EpcYKhpbiSa', 'ben');
+INSERT INTO `user` (`user_id`, `password`, `user_name`, `account_enabled_status`, `account_expiry_date`, `account_locked_status`, `credentials_expiry_date`) VALUES
+(1, '$2a$12$ELixTw75rQdVVA/C0BFyoeH.bwb420lz0ejxBMy8Rr4GCN4qpOEgy', 'alice', 1, '2026-09-10', 1, '2025-09-09'),
+(2, '$2a$12$OrsWxWiRw5joC/qsKcymNOyUQ9i1fVu8Mzz0WEuS.0EpcYKhpbiSa', 'ben', 1, '2026-09-10', 1, '2026-01-10');
 
 -- --------------------------------------------------------
 
