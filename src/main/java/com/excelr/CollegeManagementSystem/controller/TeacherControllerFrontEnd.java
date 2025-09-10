@@ -57,11 +57,11 @@ public class TeacherControllerFrontEnd {
 	{
 		Teacher teacher1=teacherService.saveTeacher(teacher);
 //		System.out.println(teacher);
-		return "redirect:/showAllTeachers";
+		return "redirect:/";
 	}
 	
 	
-	@RequestMapping("/showAllTeachers")
+	@RequestMapping("/")
 	public String showAllTeachers(Model model)
 	{
 		List<Teacher> teachers=teacherService.getAllTeachers();
@@ -74,7 +74,7 @@ public class TeacherControllerFrontEnd {
 	public String deleteTeacher(@PathVariable("tno") int tno)
 	{
 		teacherService.deleteTeacher(tno);
-		return "redirect:/showAllTeachers";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/updateTeacherForm/{tno}")
@@ -89,7 +89,7 @@ public class TeacherControllerFrontEnd {
 	public String updateTeacher(@PathVariable("tno") int tno, @ModelAttribute Teacher newValues)
 	{
 		teacherService.updateTeacher(tno,newValues);
-		return "redirect:/showAllTeachers";
+		return "redirect:/";
 	}
 
 }

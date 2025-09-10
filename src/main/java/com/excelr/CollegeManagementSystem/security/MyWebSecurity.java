@@ -93,7 +93,7 @@ public class MyWebSecurity //extends WebSecurityConfigurerAdapter
 	        .requestMatchers("/updateTeacherForm/**","/deleteTeacherFE/**").hasAuthority("ADMIN")
 	        .anyRequest().authenticated()
 	        .and()
-	        .formLogin().loginProcessingUrl("/login").successForwardUrl("/showAllTeachers").permitAll()
+	        .formLogin().loginProcessingUrl("/login").successForwardUrl("/").permitAll()
 	        .and()
 	        .logout().logoutSuccessUrl("/login").permitAll()
 	        .and()

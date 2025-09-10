@@ -1,5 +1,6 @@
 package com.excelr.CollegeManagementSystem.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -31,6 +32,11 @@ public class User {
 	int userId;
 	String userName;
 	String password;
+	
+	LocalDate accountExpiryDate; 	//subscrition 9-sept-2024  10-sept-2024
+	int accountLockedStatus;			//1- Active 0-Locked
+	LocalDate credentialsExpiryDate; //Banking password validity 9 May 120 days
+	int accountEnabledStatus;
 	
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(		
